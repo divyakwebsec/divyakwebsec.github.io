@@ -230,18 +230,13 @@ body {
   width: 280px;
   height: 600px;
   display: grid;
-  justify-items: right;
+  justify-items: center;
   align-items: right;
   background-color: lightsalmon;
   border-radius: 7px;
   box-shadow: 0px 0px 5px 2px black;
   padding: 10px;
   border: 5px solid gray;
-  justify-items: right;
-/*   margin: auto; */
-/*   position: absolute;
-  top: 200px;
-  right: 1550px; */
 }
 #whoExists{
   font-size: 30px;
@@ -250,7 +245,6 @@ body {
   padding: 20px;
   color: #275272;
   font-weight: bold;
-/*   position: relative; */
   justify-items: center;
   align-items: center;
 }
@@ -264,9 +258,6 @@ body {
   font-weight: bold;
   align-items: center;
   justify-items: center;
-/*   position: relative;
-  top: 50px; */
-/*   right: 30px; */
 }
 .makeAdmin{
   text-align: center;
@@ -307,16 +298,14 @@ body {
   width: 280px;
   height: 600px;
   display: grid;
-  align-items: center;
+  margin-left: auto;
+  margin-top: -630px;
   justify-items: center;
   background-color: lightsalmon;
   border-radius: 7px;
   box-shadow: 0px 0px 5px 2px black;
   padding: 10px;
   border: 5px solid gray;
-/*   position: absolute;
-  top: 200px;
-  right: 50px; */
 }
 #whoOnline{
   font-size: 30px;
@@ -350,15 +339,14 @@ body {
   box-shadow: 0px 0px 5px 2px black;
   padding: 10px;
   border: 5px solid gray;
-  width: 780px;
-  height: 600px;
-/*   overflow: auto;  */
-/*   display: grid;
+  width: 600px;
+  height: 600px; 
+  display: grid;
   justify-items: center;
-  align-items: center; */
-/*   position: absolute;
-  top: 200px;
-  right: 550px; */
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -630px;
 }
 #GChat{
   font-size: 30px;
@@ -366,13 +354,10 @@ body {
   padding: 20px;
   color: #275272;
   font-weight: bold;
-/*   position: absolute;
-  right: 210px;
-  top: -10px; */
 }
 #Message{
   text-align: center;
-  width: 55%;
+  width: 50%;
   padding: 5px 20px;
   margin: 560px 0px;
   background-color: lightsalmon;
@@ -385,6 +370,9 @@ body {
   color: #4682b4;
   justify-items: center;
   align-items: center;
+  margin-left: 10px;
+  margin-right: auto;
+  margin-top: 490px;
 }
 #Message::placeholder{
   color: black;
@@ -401,23 +389,24 @@ body {
   font-family: serif;
   font-size: 18px;
   text-align: center;
-/*   position: absolute;
-  top: 100px;
-  right: 350px; */
+  overflow: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -2100px;
 }
 #SendMessage{
   text-align: center;
   border-radius: 8px;
-  padding: 5px 20px;
+  padding: 5px 8px;
   font-size: 18px;
   font-family: serif;
   margin: 25px 0;
   background-color: lightsalmon;
   transition-duration: 0.4s;
   border: 2px solid #fdf97d;
-/*   position: absolute;
-  top: 545px;
-  right: 200px; */
+  margin-left: auto;
+  margin-right: 155px;
+  margin-top: -1132px;
 }
 #SendMessage:hover{
   background-color: #fdf97d;
@@ -427,16 +416,16 @@ body {
 #Clear{
   text-align: center;
   border-radius: 8px;
-  padding: 5px 20px;
+  padding: 5px 8px;
   font-size: 18px;
   font-family: serif;
   margin: 25px 0;
   background-color: lightsalmon;
   transition-duration: 0.4s;
   border: 2px solid #fdf97d;
-/*   position: absolute;
-  top: 545px;
-  right: 30px; */
+  margin-left: auto;
+  margin-right: 8px;
+  margin-top: -1132px;
 }
 #Clear:hover{
   background-color: #fdf97d;
@@ -473,9 +462,8 @@ body {
   font-weight: bold;
   transition-duration: 0.4s;
   border: 2px solid #fdf97d;
-/*   position: absolute;
-  top: -10px;
-  right: 50px; */
+  margin-left: auto;
+  margin-right: auto;
 }
 #Logout:hover{
   background-color: #fdf97d;
