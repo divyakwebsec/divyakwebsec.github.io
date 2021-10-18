@@ -250,9 +250,9 @@ body {
   padding: 20px;
   color: #275272;
   font-weight: bold;
-  position: relative;
-  top: -35px;
-  right: 85px;
+/*   position: relative; */
+  justify-items: center;
+  align-items: center;
 }
 #userLog{
   font-size: 18px;
