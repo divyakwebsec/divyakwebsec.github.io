@@ -391,7 +391,7 @@ body {
   font-family: serif;
   font-size: 18px;
   text-align: center;
-  overflow-y: scroll;
+  overflow: scroll;
   margin-left: auto;
   margin-right: auto;
   margin-top: -1200px;
