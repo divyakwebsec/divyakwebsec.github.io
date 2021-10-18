@@ -386,13 +386,15 @@ body {
   color: #4682b4;
 }
 #chatsLog{
+  width: 400px;
+  height: 400px;
   font-family: serif;
   font-size: 18px;
   text-align: center;
-/*   overflow: auto; */
+  overflow-y: scroll;
   margin-left: auto;
   margin-right: auto;
-  margin-top: -2100px;
+  margin-top: -1700px;
 }
 #SendMessage{
   text-align: center;
