@@ -32,14 +32,11 @@ let renderUser = function(usrObj){
   let signedinRef = rtdb.ref(db, `/users/${id}/signedin`);
   rtdb.set(signedinRef, true);
   rtdb.get(userRef).then(ss=>{
-    $("#Userdisplay").html(ss.val());
-  });
-  rtdb.get(signedinRef).then(ss=>{
-    if(ss.val()==true){
-      $("#signedOn").append(
-        $("#Userdisplay").html(ss.val())
-      )
-    }
+    let val = ss.val();
+    $("#logname").html(val);
+    $("#signedOn").append(
+      $("#Userdisplay").html(val)
+    )
   });
   rtdb.get(adminRef).then(ss=>{
     if (ss.val()==true){
@@ -78,7 +75,7 @@ fbauth.onAuthStateChanged(auth, user=>{
   else{
     $("#LoginPage").show();
     clickHandlerRegisterPage();    
-    $("#Userdisplay").html("");    
+    $("#logname").html("");    
     $("#LoggedIn").hide();
     $("#GroupChat").hide();
     $("#UserLogs").hide();
@@ -109,7 +106,7 @@ $("#Register").on("click", ()=>{
     rtdb.set(signedInRef,true);
     rtdb.set(newAcctRef, false);
     rtdb.get(usernameRef).then(ss=>{
-      $("#Userdisplay").html(ss.val());
+      $("#logname").html(ss.val());
     });
   }).catch(function(error){
     //Error Handler
@@ -130,7 +127,7 @@ $("#Login").on("click", ()=>{
     let uid = userCredentials.user.uid
     let usernameRef = rtdb.ref(db, `/users/${uid}/username`);
     rtdb.get(usernameRef).then(ss=>{
-      $("#Userdisplay").html(ss.val());
+      $("#logname").html(ss.val());
     });
   }).catch(function(error){
     //Error Handler
@@ -143,7 +140,7 @@ $("#Login").on("click", ()=>{
 
 let clickHandlerMsg = function(){
   let message = $("#Message").val();
-  let username = $("#Userdisplay").text();
+  let username = $("#logname").text();
   let currentTime = Date().valueOf();
   let chatmsg = { 
     User: username,
@@ -158,14 +155,12 @@ let clickHandlerEdit = function(target){
   let currentTarget = target.currentTarget;
   let currentID = $(currentTarget).attr("data-id");
   let msg = this.innerHTML;
-  let ind = msg.indexOf(":");
-  let msgUser = msg.slice(0, ind);
-  let username = $("#Userdisplay").text();
+  let ind = msg.indexOf(">");
+  let end = msg.indexOf(":");
+  let msgUser = msg.slice(ind+1,end);
+  let username = $("#logname").text();
   if(username == msgUser){
     let edit = window.prompt("Edit your message", "");
-    // if(edit == null){
-    //   edit = msgVal;
-    // }
     this.innerHTML = username + ':"' + edit + '"';
     let message = rtdb.ref(db, "chats/" + currentID + "/message");
     let editbool = rtdb.ref(db, "chats/" + currentID + "/edited")
@@ -176,7 +171,6 @@ let clickHandlerEdit = function(target){
     alert("You don't have privileges to edit this message");
   }
 }
-
 let makeAdmin = function(target){
   let currentTarget = target.currentTarget;
   var currentID = $(currentTarget).attr("data-id");
@@ -236,7 +230,7 @@ rtdb.onValue(chats, ss=>{
       let user = JSON.stringify(value[anId].User);
       let input = user.replace(/"/g, '');
       $("#chatsLog").append(
-        `<div class="Messages" data-id=${anId}> <span class="usernm">${input + ":"} <\span>  <span class="msg">${msg} <\span> </div>`
+        `<div class="Messages" data-id=${anId}> <span class="usernm">${input + ":"} <\span> <span class="msg">${msg} <\span> </div>`
       );
     });
     $(".Messages").click(clickHandlerEdit);
@@ -277,6 +271,27 @@ let clickHandlerRegisterPage = function(){
   $("#Password").show();
   $("#ReenterPassword").show();
   $("#Register").show();
+}
+
+var clickHandlerSpecificChat = function(evt){
+  //alert("now inside clickHandlerSpecificChat")
+  //$(".groupChat").hide();
+  let clickedElement = evt.currentTarget;
+  let idFromDOM = $(clickedElement).attr("data-id-listName");
+  
+  groupChat = false;
+  receiver_id = idFromDOM;
+  let receiver_name;
+  //alert(receiver_id);
+  
+  let receiverRef = rtdb.ref(db, "/users/" + receiver_id);
+        rtdb.onValue(receiverRef, ss=>{
+        receiver_name = ss.val().name;
+          
+        $(".chat-num-messages").html("Chat with " + receiver_name);     
+        })
+  //alert(receiver_id);
+  renderChats(userObjGlobal); 
 }
 
 $("#SendMessage").click(clickHandlerMsg);

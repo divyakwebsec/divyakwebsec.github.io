@@ -314,11 +314,10 @@ body {
   padding: 20px;
   color: #275272;
   font-weight: bold;
-/*   position: absolute;
-  top: -35px;
-  right: 50px; */
 }
 #signedOn{
+  width: 240px;
+  height: 500px;
   font-size: 18px;
   font-family: serif;
   letter-spacing: 0.5px;
@@ -328,8 +327,6 @@ body {
   font-weight: bold;
   align-items: center;
   justify-items: center;
-/*   position: relative;
-  top: 50px; */
 }
 
 /* Massive Group Chat */
@@ -458,17 +455,44 @@ body {
   padding: 5px 20px;
   font-size: 24px;
   font-family: serif;
-  margin: 25px 0;
+  margin: 25px;
   background-color: #353f41;
   color: #fdf97d;
   font-weight: bold;
   transition-duration: 0.4s;
   border: 2px solid #fdf97d;
-  margin-left: auto;
-  margin-right: auto;
+  position: absolute;
+  margin-top: -100px;
+  margin-left: 90%;
 }
 #Logout:hover{
   background-color: #fdf97d;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   color: #4682b4;
+} 
+#Name{
+  text-align: center;
+  padding: 5px;
+  font-size: 24px;
+  font-family: serif;
+  margin: 25px;
+  background-color: #353f41;
+  color: #fdf97d;
+  font-weight: bold;
+  position: absolute;
+  margin-top: -100px;
 }
+#logname{
+  text-align: center;
+  padding: 5px;
+  font-size: 24px;
+  font-family: serif;
+  margin: -30px;
+  background-color: #353f41;
+  color: #fdf97d;
+  font-weight: bold;
+  position: absolute;
+  margin-left: 175px;
+  margin-top:-100px;
+}
+
